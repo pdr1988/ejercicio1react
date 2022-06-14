@@ -1,18 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import Navbar from "./components/NavBar/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          HOLA CODERHOUSE!!!
-        </p>
-        
-      </header>
-    </div>
+    <Navbar/>
+    
   );
 }
-
 export default App;
