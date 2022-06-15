@@ -155,16 +155,7 @@ const Navbar = () => {
             </Menu>
           </Box>
         </Toolbar>
-        <div className="App">
-        <header className="App-header">
-        
-        <p>
-          PRUEBA DE NAVBAR USANDO MATERIAL UI
-        </p>
-        
-        </header>
-        </div>
-    
+            
       </Container>
     </AppBar>
   );
