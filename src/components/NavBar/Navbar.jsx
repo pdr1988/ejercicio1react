@@ -12,11 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Cartwidget from '../Cartwidget/Cartwidget';
+
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const Navbar = () => {
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -114,6 +117,7 @@ const Navbar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          
             {pages.map((page) => (
               <Button
                 key={page}
@@ -125,8 +129,13 @@ const Navbar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+      <Box>
+          <Cartwidget/>
+
+      </Box>
+      <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
+             
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -154,10 +163,11 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
+
+          
         </Toolbar>
-            
       </Container>
     </AppBar>
   );
 };
-export default Navbar;
+export default ResponsiveAppBar;
