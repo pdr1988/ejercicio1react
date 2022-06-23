@@ -13,7 +13,7 @@ function App() {
     <div>
       <Navbar/>
       <ItemListContainer mensaje = "HOLA" user= "CODERHOUSE" compra="zapatillas" precio ="10000"/>
-      <Itemcount stock="5" initial = "1" onAdd={onAdd}/>
+      {/* <Itemcount stock="5" initial = "1" onAdd={onAdd}/> */}
     </div>
   );
 }
