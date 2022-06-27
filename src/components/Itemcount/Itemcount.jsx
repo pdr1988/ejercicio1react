@@ -91,9 +91,14 @@ const blue = {
   
 
 const Itemcount = ({ stock, initial, onAdd}) => {
-  const [count, setCount] = React.useState(parseInt(initial));
+  const [count, setCount] = React.useState(initial);
+  const sumar = ()=>{
+    setCount(count +1);
+  }
 
-
+  const restar = ()=>{
+    setCount(count -1);
+  }
     return(
         <Box
         sx={{
@@ -117,23 +122,15 @@ const Itemcount = ({ stock, initial, onAdd}) => {
           <ButtonGroup>
             <Button
               aria-label="reduce"
-              onClick={() => {
-                setCount(Math.max(count - 1, 0));
-              }}
+              onClick={restar} 
+              disabled={count === initial}
             >
               <RemoveIcon fontSize="small" />
             </Button>
             <Button
               aria-label="increase"
-              onClick={() => {
-                if (count == stock){
-                    alert("STOCK MAXIMO");
-
-                }
-                else{
-                    setCount(count + 1);
-               }
-              }}
+              onClick={sumar} 
+              disabled={count === stock}
             >
               <AddIcon fontSize="small" />
             </Button>

@@ -8,7 +8,6 @@ export default function ItemList({productos}) {
             
 
             <div key={producto.id}> 
-                {/*  id {producto.id} nombre {producto.name} precio {producto.precio}*/}
                 <Item producto={producto}/>
             </div>
             )
