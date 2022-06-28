@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import ItemList from "./ItemList";
-import './ItemListContainer.css'
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+import ItemList from "../ItemListContainer/ItemList";
+import ItemDetail from "../ItemDetailContainer/ItemDetail"
 
 
 
-const ItemListContainer = ({mensaje, user, compra, precio}) => {
+const ItemDetailContainer = ({mensaje, user, compra, precio}) => {
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(false);
-    const [productos, setProductos] = useState([]);
+    const [producto, setProducto] = useState([]);
 
     useEffect(()=>{
         let pago = new Promise((res,rej)=>{
@@ -21,8 +20,9 @@ const ItemListContainer = ({mensaje, user, compra, precio}) => {
            }, 2000)
         });
         pago.then((resultado)=>{
-            setProductos(resultado);
-            console.log(resultado)
+            const item = resultado.find((item)=> item.id ===0);
+            console.log(item);
+            setProducto(item)
             setLoading (false);
         })
         .catch((error)=>{
@@ -39,19 +39,18 @@ const ItemListContainer = ({mensaje, user, compra, precio}) => {
     
     
     return(
-        <div>
-            {/*  <p className="msj">{mensaje}</p>
-            <p className="msj">{user}</p>
-            <p className="msj">{compra}</p>
-            <p className="msj">{precio}</p>*/}
-            {loading && "Cargando..."}
-            {error && "ERROR!!!"}
-            {productos && <ItemList productos={productos}/>} 
-            {/*  {productos && <ItemDetailContainer productos={productos}/>} */}
+        <div>{
+            
+            loading?
+                <div>CARGANDO...</div>
+          
+            :
+                <ItemDetail producto={producto}/>
+            }
         </div>
        
     
     )
     
 }
-export default ItemListContainer;
+export default ItemDetailContainer;
