@@ -1,0 +1,12 @@
+.Itemgral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Itemlistado{
+    margin: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 

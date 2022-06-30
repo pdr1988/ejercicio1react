@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Button from '@mui/material/Button';
+import { margin } from '@mui/system';
 
 
 const Img = styled('img')({
@@ -21,17 +22,16 @@ const ItemDetail = ({producto}) => {
 
 <Paper
       sx={{
-        p: 2,
+        p: 15,
         margin: 'auto',
         maxWidth: 500,
-        flexGrow: 1,
-        
-        backgroundColor: (theme) =>
+        flexGrow: 10,
+          backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-      }}
+      }} 
     >
-      <Grid container spacing={2}>
-        <Grid item>
+      <Grid container spacing={2} >
+        <Grid item >
           <ButtonBase sx={{ width: 128, height: 128 }}>
             <Img alt="complex" src={producto.picURL}/>
           </ButtonBase>

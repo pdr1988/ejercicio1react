@@ -5,3 +5,9 @@
     font-size: x-large;
     font-style: inherit;
 }
+#Listado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
