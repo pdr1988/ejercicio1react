@@ -7,6 +7,9 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Button from '@mui/material/Button';
 import { margin } from '@mui/system';
+import Itemcount from '../Itemcount/Itemcount';
+
+
 
 
 const Img = styled('img')({
@@ -18,6 +21,12 @@ const Img = styled('img')({
 
 
 const ItemDetail = ({producto}) => {
+  function onAdd(count){
+
+
+    alert("AGREGO " +  count + " " + producto.name + " AL CARRITO")
+  
+  }
   return (
 
 <Paper
@@ -51,10 +60,10 @@ const ItemDetail = ({producto}) => {
             </Grid>
             <Grid item>
 
-                <Button variant="contained" color="success">
+                {/* <Button variant="contained" color="success">
                     COMPRAR AHORA
-                </Button>
-              
+                </Button> */}
+              <Itemcount stock={producto.stock} initial = {1} onAdd={onAdd}/>
             </Grid>
           </Grid>
           <Grid item>

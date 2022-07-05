@@ -2,22 +2,26 @@ import './App.css';
 import React from "react";
 import Navbar from "./components/NavBar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import Itemcount from "./components/Itemcount/Itemcount";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import TestEvent from './components/TestEvent/TestEvent';
 import Footer from './components/Footer/Footer';
+import Cart from './components/Cart';
+/* import { createContext } from 'react';
+import { useState } from 'react'; */
+/* import TestEvent from './components/TestEvent/TestEvent';
+ */
 
-
+/* export const cartContext = createContext();
+ */
 
 function App() {
-  function onAdd(count){
-    alert("AGREGO " + count + " PRODUCTOS AL CARRITO")
+/*   const [darkMode, setDarkMode] = useState(false);
+ */
 
-  }
   return (
-    <div style={{ background: '#2E3B55' }}>
-      
+    <div /* style={{ background: '#2E3B55' }} */>
+{/*       <cartContext.Provider value={{ darkMode, setDarkMode }}>
+ */}
            
       <BrowserRouter>
         <Navbar/>
@@ -25,14 +29,16 @@ function App() {
             <Route path="/" element={<ItemListContainer/>} />
             <Route path="/category/:idCategory" element={<ItemListContainer/>}/>
             <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+
 {/*             <TestEvent/>
  */}        
-            {/* <Itemcount stock={5} initial = {1} onAdd={onAdd}/> */}
             
         </Routes>
         <Footer/>
       </BrowserRouter>
-    </div>
+{/*       </cartContext.Provider>
+ */}    </div>
 
   );
 }

@@ -7,9 +7,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import './Item.css'
+/* import { cartContext } from '../../App';
+import { useContext } from 'react'; */
 
 
 export default function item({producto}) {
+ /*  const {darkMode, setDarkMode} = useContext(cartContext)
+  console.log(darkMode); */
   return (
     <Card sx={{ maxWidth: 250 }} >
     <CardMedia
