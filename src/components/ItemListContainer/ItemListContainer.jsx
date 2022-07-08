@@ -4,7 +4,6 @@ import ItemList from "./ItemList";
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import Cart from "../Cart";
 
 
 const ItemListContainer = ({mensaje, user, compra, precio}) => {

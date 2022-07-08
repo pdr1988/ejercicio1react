@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { useState } from "react";
 
 //desde linea 15 hasta 53 son propiedades del icono del carrito y del supraindice de cuenta de items sacadas de la pagina de material UI
 const StyledBadge = styled(BadgeUnstyled)`
@@ -92,6 +92,7 @@ const blue = {
 
 const Itemcount = ({ stock, initial, onAdd}) => {
   const [count, setCount] = React.useState(initial);
+  const [addCart, setAddCart] = useState(true);
   const sumar = ()=>{
     setCount(count +1);
   }
@@ -142,7 +143,8 @@ const Itemcount = ({ stock, initial, onAdd}) => {
                 <CustomButton component="span"
                  onClick={() => {
                     onAdd(count);
-                  }}>AGREGAR AL CARRITO</CustomButton>
+                  }}>AGREGAR AL CARRITO
+                </CustomButton>
       
             </Stack>
         </div>

@@ -6,26 +6,22 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart';
-/* import { createContext } from 'react';
-import { useState } from 'react'; */
+import CartContext from './components/CartContext/CartContext';
 /* import TestEvent from './components/TestEvent/TestEvent';
  */
 
-/* export const cartContext = createContext();
- */
+
+
 
 function App() {
-/*   const [darkMode, setDarkMode] = useState(false);
- */
 
   return (
-    <div /* style={{ background: '#2E3B55' }} */>
-{/*       <cartContext.Provider value={{ darkMode, setDarkMode }}>
- */}
-           
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
+    <CartContext>
+      <div>
+     
+        <BrowserRouter>
+          <Navbar/>
+           <Routes>
             <Route path="/" element={<ItemListContainer/>} />
             <Route path="/category/:idCategory" element={<ItemListContainer/>}/>
             <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
@@ -34,12 +30,11 @@ function App() {
 {/*             <TestEvent/>
  */}        
             
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
-{/*       </cartContext.Provider>
- */}    </div>
-
+            </Routes>
+          <Footer/>
+        </BrowserRouter>
+      </div>
+    </CartContext>
   );
 }
 export default App;
