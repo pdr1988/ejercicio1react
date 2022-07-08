@@ -92,7 +92,6 @@ const blue = {
 
 const Itemcount = ({ stock, initial, onAdd}) => {
   const [count, setCount] = React.useState(initial);
-  const [addCart, setAddCart] = useState(true);
   const sumar = ()=>{
     setCount(count +1);
   }

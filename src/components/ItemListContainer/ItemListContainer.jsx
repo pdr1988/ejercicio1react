@@ -61,12 +61,7 @@ const ItemListContainer = ({mensaje, user, compra, precio}) => {
             {error && "ERROR!!!"}
     
             {productos && <ItemList productos={productos}/>} 
-            <button >
-                <Link to={`/cart`} >
-                  FINALIZAR COMPRA
-                </Link>
-            </button>
-            
+                       
         </div>
        
     
