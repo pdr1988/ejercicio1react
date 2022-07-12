@@ -6,14 +6,13 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Button from '@mui/material/Button';
-import { margin } from '@mui/system';
 import Itemcount from '../Itemcount/Itemcount';
 import { useState } from 'react';
 import BadgeUnstyled, { badgeUnstyledClasses } from '@mui/base/BadgeUnstyled';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import { Link } from 'react-router-dom';
-
-
+import { cartContext } from '../CartContext/CartContext';
+import { useContext } from 'react';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -62,12 +61,13 @@ const Img = styled('img')({
 
 const ItemDetail = ({producto}) => {
 const [addCart, setAddCart] = useState(true);
+const {addItem} = useContext(cartContext);
 
   function onAdd(count){
+    
+    addItem(producto, count);
 
-
-/*     alert("AGREGO " +  count + " " + producto.name + " AL CARRITO")
- */    setAddCart(false);
+     setAddCart(false);
   
   }
   return (

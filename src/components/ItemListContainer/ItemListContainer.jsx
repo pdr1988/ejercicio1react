@@ -3,7 +3,6 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
 
 
 const ItemListContainer = ({mensaje, user, compra, precio}) => {
