@@ -8,18 +8,18 @@ export default function CartContext({children}) {
     let [refresh, setRefresh] = useState(true)   
 
     function addItem(item, quantify){
-      
-      const cartaux = cart.find((itemaux)=> itemaux.id == item.id)
-      const aux = Object.assign(item, {"cantidad": quantify})
-      if (cartaux == undefined){
-        cart.push(aux)
-        alert("Se agregaron " + JSON.stringify(quantify) + " " + JSON.stringify(item.name) )
 
+      if(isInCart(item.id)){
+        const productUpdate =cart.map((product)=> product.id ===item.id ? {...product, cantidad:product.cantidad + quantify} : product)
+        setCart([...productUpdate])
+
+      } 
+      else{
+        setCart([...cart, {...item, "cantidad":quantify}])
       }
-      else {
-      alert("Producto existente")
-      }
-    }
+      
+
+    } 
     function removeItem(item){
            
       console.log(item.row.id)
@@ -35,7 +35,9 @@ export default function CartContext({children}) {
         setCart([]);
         setRefresh(!refresh)
     }
-    const isInCart= (item)=> {
+    function isInCart (id) {
+      return cart.some((product)=> product.id === id)
+      
         
     }
   return (
