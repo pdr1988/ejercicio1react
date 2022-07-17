@@ -1,21 +1,69 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
+import BadgeUnstyled, { badgeUnstyledClasses } from '@mui/base/BadgeUnstyled';
+import { styled } from '@mui/system';
+import { cartContext } from '../CartContext/CartContext';
+import { useContext } from 'react';
 
+const StyledBadge = styled(BadgeUnstyled)`
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  list-style: none;
+  font-family: IBM Plex Sans, sans-serif;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
 
+  & .${badgeUnstyledClasses.badge} {
+    z-index: auto;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    text-align: center;
+    background: #07f;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  & .${badgeUnstyledClasses.invisible} {
+    opacity: 0;
+    pointer-events: none;
+  }
+`;
 
 
 const Cartwidget = () => {
-    function print() {
-        console.log("producto agregado")
-    }
-
+    const {cart} = useContext(cartContext);
+    let countAux = 0
+    cart.map((product)=> countAux = countAux + product.cantidad)
+    
     return(
-        
-        <IconButton size="x-large"  onClick={print}>
-            <ShoppingCartIcon fontSize="x-large"/>
-        </IconButton>
-        
+        <div>
+        <StyledBadge badgeContent={countAux}>
+  
+    
+
+       
+            <IconButton size="x-large">
+                <ShoppingCartIcon fontSize="x-large"/>
+            </IconButton>
+        </StyledBadge>
+        </div> 
     )    
 }
 export default Cartwidget;

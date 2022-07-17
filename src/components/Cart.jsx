@@ -1,18 +1,18 @@
 import React from 'react'
 import { cartContext } from './CartContext/CartContext';
 import { useContext } from 'react';
-
+import './Cart.css';
 import Button from '@mui/material/Button';
 
 import {
   DataGridPro
 } from '@mui/x-data-grid-pro';
+import { Link } from 'react-router-dom';
 
 
 export default function Cart() {
   const {cart, removeItem, clear} = useContext(cartContext);
   
-  console.log(cart)
   const rows = []
   cart.map((producto) => (
     rows.push({id:producto.id, name: producto.name, cantidad:producto.cantidad, precio:producto.precio, precioTotal: (producto.cantidad*producto.precio)})
@@ -71,22 +71,28 @@ export default function Cart() {
     },
   ];
   
-  console.log(rows)
+  let priceAux = 0;
 
+  cart.map((product)=> priceAux = priceAux + product.precio * product.cantidad)
   return (
-    
-          
-
-    <div style={{ height: 400, width: '100%' }}>
+    <div> 
+    {rows[0] ? <div style={{ height: 400, width: '100%' }}>
         
           <DataGridPro
             rows={rows}            
             columns={columns}
-          /> 
-          <button onClick={clear}>BORRAR CARRITO</button>
-    </div>
+          />
+          <div> 
+            <button className='button' onClick={clear}>BORRAR CARRITO</button>
+            <b className='total'>PRECIO TOTAL: ${priceAux}.00</b>
+          </div>
+      </div>
+      :
+       <Link to= "/"><span className='emptyCart'>Carrito vacio, click aqui para comprar</span></Link>}
      
-  )}
+    </div>
+  )
+}
 
 
 

@@ -135,12 +135,10 @@ const Navbar = ({count}) => {
             </Menu>
           </Box>
       <Box>
-        <StyledBadge badgeContent={count}>
   
           <Link to={`/cart`} >
             <Cartwidget/>                       
           </Link>   
-        </StyledBadge>
       
 
       </Box>

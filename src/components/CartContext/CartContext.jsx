@@ -22,7 +22,6 @@ export default function CartContext({children}) {
     } 
     function removeItem(item){
            
-      console.log(item.row.id)
       const cartaux = cart.find((itemaux)=> itemaux.id == item.id)
 
       const index = cart.indexOf(cartaux);
