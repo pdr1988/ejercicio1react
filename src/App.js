@@ -7,10 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart';
 import CartContext from './components/CartContext/CartContext';
-/* import TestEvent from './components/TestEvent/TestEvent';
- */
-
-
+import Testconsulta from './components/Firebase/Testconsulta'
+import TestConsColec from './components/Firebase/TestConsColec';
 
 
 function App() {
@@ -26,10 +24,8 @@ function App() {
             <Route path="/category/:idCategory" element={<ItemListContainer/>}/>
             <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
             <Route path="/cart" element={<Cart/>}/>
-
-{/*             <TestEvent/>
- */}        
-            
+{/*             <Route path="/test" element={<TestConsColec/>}/>
+ */}            
             </Routes>
           <Footer/>
         </BrowserRouter>

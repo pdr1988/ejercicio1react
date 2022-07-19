@@ -12,9 +12,8 @@ import { useContext } from 'react';  */
 
 
 export default function Item({producto}) {
- /*  let {x, helloWorld} = useContext(cartContext)
-  helloWorld();
-  console.log(x); */
+
+  console.log(producto.id)  
   return (
     <Card sx={{ maxWidth: 250 }} >
     <CardMedia
