@@ -9,20 +9,29 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+
 
 
 
 export default function Checkout() {
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
    
-    const {cart, removeItem, clear} = useContext(cartContext);
+    const {cart, preciototal} = useContext(cartContext);
     const [name,setName] = useState();
     const [phone,setPhone] = useState();
     const [email,setEmail] = useState();
 
-    const pedido = {buyer: {name, phone, email}, carrito: cart, total:100}
+    
 
     function handleClickComprar (){
-        console.log(pedido)
+        const pedido = {buyer: {name, phone, email}, carrito: cart, date: hoy.toISOString(), total: preciototal()}
+        const db = getFirestore();
+        const collectionRef = collection(db, 'pedido');
+        addDoc(collectionRef, pedido).then(({id})=>alert(id))
+        
+
 
 
     }

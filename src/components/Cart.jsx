@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function Cart() {
-  const {cart, removeItem, clear} = useContext(cartContext);
+  const {cart, removeItem, clear, preciototal} = useContext(cartContext);
   
   const rows = []
   cart.map((producto) => (
@@ -71,9 +71,7 @@ export default function Cart() {
     },
   ];
   
-  let priceAux = 0;
-
-  cart.map((product)=> priceAux = priceAux + product.precio * product.cantidad)
+   let priceAux = preciototal()
   return (
     <div> 
     {rows[0] ? <div style={{ height: 400, width: '100%' }}>
@@ -85,6 +83,12 @@ export default function Cart() {
           <div> 
             <button className='button' onClick={clear}>BORRAR CARRITO</button>
             <b className='total'>PRECIO TOTAL: ${priceAux}.00</b>
+          </div>
+          <div>
+          <button className='button'> <Link to={`/checkout`} >
+                          FINALIZAR COMPRA
+          </Link></button>
+
           </div>
       </div>
       :

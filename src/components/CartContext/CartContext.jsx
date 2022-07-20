@@ -5,7 +5,8 @@ export const cartContext = createContext();
 
 export default function CartContext({children}) {
     let [cart, setCart] = useState([]);
-    let [refresh, setRefresh] = useState(true)   
+    let [refresh, setRefresh] = useState(true) 
+    
 
     function addItem(item, quantify){
 
@@ -16,9 +17,10 @@ export default function CartContext({children}) {
       } 
       else{
         setCart([...cart, {...item, "cantidad":quantify}])
+        
       }
       
-
+    
     } 
     function removeItem(item){
            
@@ -39,9 +41,15 @@ export default function CartContext({children}) {
       
         
     }
+    function preciototal (){
+    let priceAux = 0;
+
+    cart.map((product)=> priceAux = priceAux + product.precio * product.cantidad)
+    return priceAux
+    }
   return (
     <div>
-        <cartContext.Provider value ={{addItem, removeItem, clear, isInCart, cart}}>{children}</cartContext.Provider>
+        <cartContext.Provider value ={{addItem, removeItem, clear, isInCart, cart, preciototal}}>{children}</cartContext.Provider>
     </div>
   )
 }
