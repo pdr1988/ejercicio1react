@@ -14,8 +14,8 @@ const ItemDetailContainer = () => {
     useEffect(()=>{
 
         const db = getFirestore ();
-        const heladera = doc(db, 'items', idItem);
-        getDoc(heladera).then((res)=>{
+        const productoAux = doc(db, 'items', idItem);
+        getDoc(productoAux).then((res)=>{
                         
             setProducto ({...res.data(), id: res.id});
 
