@@ -2,11 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    margin-top: 10px;
+    background-color: #c9e9fc;}
 .Itemlistado{
     margin: 50px;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: '../img/wallpaper.jpg';
 } 

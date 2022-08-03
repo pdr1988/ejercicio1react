@@ -1,18 +1,17 @@
 import React from 'react'
-import ItemDetailContainer from './ItemDetailContainer'
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import Button from '@mui/material/Button';
 import Itemcount from '../Itemcount/Itemcount';
 import { useState } from 'react';
-import BadgeUnstyled, { badgeUnstyledClasses } from '@mui/base/BadgeUnstyled';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../CartContext/CartContext';
 import { useContext } from 'react';
+import sublogo from '../img/mario.png'
+
 
 const Img = styled('img')({
     margin: 'auto',
@@ -71,18 +70,20 @@ const {addItem} = useContext(cartContext);
   
   }
   return (
-
+<div className='paper'>
 <Paper
       sx={{
-        p: 15,
+        backgroundImage: `url(${sublogo})`,
+        p: 25,
         margin: 'auto',
-        maxWidth: 500,
+        marginTop: 10,
+        marginBottom: 10,
+        border: 2,
+        maxWidth: 400,
         flexGrow: 10,
-          backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }} 
     >
-      <Grid container spacing={2} >
+      <Grid container spacing={2} sx={{backgroundColor: 'white',}} >
         <Grid item >
           <ButtonBase sx={{ width: 128, height: 128 }}>
             <Img alt="complex" src={producto.picURL}/>
@@ -121,17 +122,7 @@ const {addItem} = useContext(cartContext);
         </Grid>
       </Grid>
     </Paper>
-
-
-
-
-
-
-
-
-
-
-
+    </div>
   )
 }
 

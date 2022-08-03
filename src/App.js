@@ -8,8 +8,6 @@ import Footer from './components/Footer/Footer';
 import Cart from './components/Cart';
 import CartContext from './components/CartContext/CartContext';
 import Checkout from './components/Checkout/Checkout';
-import Testconsulta from './components/Firebase/Testconsulta';
-import TestConsColec from './components/Firebase/TestConsColec';
 
 
 function App() {
@@ -20,15 +18,12 @@ function App() {
      
         <BrowserRouter>
           <Navbar/>
-           <Routes>
-            <Route path="/" element={<ItemListContainer/>} />
-            <Route path="/category/:idCategory" element={<ItemListContainer/>}/>
-            <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/checkout" element={<Checkout/>}/>
-
-{/*             <Route path="/test" element={<TestConsColec/>}/>
- */}            
+            <Routes>
+              <Route path="/" element={<ItemListContainer/>} />
+              <Route path="/category/:idCategory" element={<ItemListContainer/>}/>
+              <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
+              <Route path="/cart" element={<Cart/>}/>
+              <Route path="/checkout" element={<Checkout/>}/>
             </Routes>
           <Footer/>
         </BrowserRouter>

@@ -5,36 +5,34 @@ export const cartContext = createContext();
 
 export default function CartContext({children}) {
     let [cart, setCart] = useState([]);
-    let [refresh, setRefresh] = useState(true) 
+    let [refresh, setRefresh] = useState(true); 
     
 
     function addItem(item, quantify){
 
       if(isInCart(item.id)){
-        const productUpdate =cart.map((product)=> product.id ===item.id ? {...product, cantidad:product.cantidad + quantify} : product)
-        setCart([...productUpdate])
+        const productUpdate =cart.map((product)=> product.id ===item.id ? {...product, cantidad:product.cantidad + quantify} : product);
+        setCart([...productUpdate]);
 
       } 
       else{
-        setCart([...cart, {...item, "cantidad":quantify}])
+        setCart([...cart, {...item, "cantidad":quantify}]);
         
       }
-      
-    
     } 
     function removeItem(item){
            
-      const cartaux = cart.find((itemaux)=> itemaux.id == item.id)
+      const cartaux = cart.find((itemaux)=> itemaux.id == item.id);
 
       const index = cart.indexOf(cartaux);
       cart.splice(index,1);
-      setRefresh(!refresh)
+      setRefresh(!refresh);
       return 
  
     }
     function clear(){
         setCart([]);
-        setRefresh(!refresh)
+        setRefresh(!refresh);
     }
     function isInCart (id) {
       return cart.some((product)=> product.id === id)
@@ -44,7 +42,7 @@ export default function CartContext({children}) {
     function preciototal (){
     let priceAux = 0;
 
-    cart.map((product)=> priceAux = priceAux + product.precio * product.cantidad)
+    cart.map((product)=> priceAux = priceAux + product.precio * product.cantidad);
     return priceAux
     }
   return (

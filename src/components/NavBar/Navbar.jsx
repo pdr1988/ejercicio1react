@@ -10,12 +10,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Cartwidget from '../Cartwidget/Cartwidget';
 import { Link } from 'react-router-dom';
-import LandscapeIcon from '@mui/icons-material/Landscape';
 import BadgeUnstyled, { badgeUnstyledClasses } from '@mui/base/BadgeUnstyled';
 import { styled } from '@mui/system';
+import logo from '../img/logo.jpg'
 
 
-const categorias = ['atma', 'samsung', 'sanyo']
+const categorias = ['sega', 'nintendo', 'sony', 'portatil', 'otros']
 
 const StyledBadge = styled(BadgeUnstyled)`
   box-sizing: border-box;
@@ -58,18 +58,11 @@ const StyledBadge = styled(BadgeUnstyled)`
 `;
 
 const Navbar = ({count}) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+ 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -78,37 +71,18 @@ const Navbar = ({count}) => {
 
 
   return (
-    <AppBar position="static" style={{ background: '#2E3B55' }} >
+    <AppBar position="static" style={{ background: '#109DFA' }} >
       <Container maxWidth="xl">
         <Toolbar disableGutters >
           <Link to={"/"}>
-           <LandscapeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color:'white'}} />
-          
-           <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 100,
-              letterSpacing: '.1rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            MiTienda
-          </Typography>
+            <img src={logo} alt="logo" />
           </Link>
-                  <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Categorias">
-             
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1, color: 'white', textDecoration: 'none', fontFamily: 'monospace',}}>
-                CATEGORIAS
-              </IconButton>
-            </Tooltip> 
+        <Box sx={{ flexGrow: 0, ml:50 }}>
+          <Tooltip title="Categorias" >
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 1, color: 'black', textDecoration: 'none', fontFamily: 'monospace', fontStyle: 'italic',}}>
+              BUSCADOR
+            </IconButton>
+          </Tooltip> 
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -133,22 +107,17 @@ const Navbar = ({count}) => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+        </Box>
       <Box>
-  
-          <Link to={`/cart`} >
-            <Cartwidget/>                       
-          </Link>   
-      
-
+        <Link to={`/cart`} >
+          <Cartwidget/>                       
+        </Link>   
       </Box>
      
-          
+    </Toolbar>
+  </Container>
+  </AppBar>
 
-
-        </Toolbar>
-      </Container>
-    </AppBar>
   );
 };
 export default Navbar;

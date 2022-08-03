@@ -7,40 +7,39 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import './Item.css'
-/* import { cartContext } from '../../App';
-import { useContext } from 'react';  */
 
 
 export default function Item({producto}) {
 
-  console.log(producto.id)  
   return (
-    <Card sx={{ maxWidth: 250 }} >
-    <CardMedia
-      component="img"
-      height="200"
-      image={producto.picURL}
-      alt="green iguana"
-    />
-    <CardContent  height="50">
-      <Typography gutterBottom variant="h6" component="div">
-        {producto.name}
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {producto.desc}
-      </Typography>
-      <Typography gutterBottom variant="h6" component="div">
-        PRECIO LISTA: ${producto.precio}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">
-        <Link to={`/item/${producto.id}`} className="buton-add">
-        Ver detalle del producto
-        </Link>
-      </Button>
-    </CardActions>
-  </Card>
+
+    <Card sx={{ maxWidth: 500 }} >
+      <CardMedia
+        component="img"
+        height="200"
+        image={producto.picURL}
+        alt="green iguana"
+      />
+        <CardContent  height="50">
+          <Typography gutterBottom variant="h6" component="div">
+            {producto.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {producto.desc}
+          </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            PRECIO LISTA: ${producto.precio}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">
+            <Link to={`/item/${producto.id}`} className="buton-add">
+              Ver detalle del producto
+            </Link>
+          </Button>
+        </CardActions>
+    </Card>
+
   )
 }
 

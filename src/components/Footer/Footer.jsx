@@ -11,7 +11,7 @@ export default function Footer() {
         <footer className='Footer'>
           <Box
             px={{ xs: 3, sm: 10 }}
-            py={{ xs: 5, sm: 10 }}
+            py={{ xs: 5, sm: 1 }}
             bgcolor="text.secondary"
             color="white"
           >
@@ -24,16 +24,8 @@ export default function Footer() {
                       Contact
                     </Link>
                   </Box>
-                  <Box>
-                    <Link href="/" color="inherit">
-                      Support
-                    </Link>
-                  </Box>
-                  <Box>
-                    <Link href="/" color="inherit">
-                      Privacy
-                    </Link>
-                  </Box>
+                  
+                 
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Box borderBottom={1}>Account</Box>
@@ -42,11 +34,7 @@ export default function Footer() {
                       Login
                     </Link>
                   </Box>
-                  <Box>
-                    <Link href="/" color="inherit">
-                      Register
-                    </Link>
-                  </Box>
+                  
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Box borderBottom={1}>Messages</Box>
@@ -55,21 +43,11 @@ export default function Footer() {
                       Backup
                     </Link>
                   </Box>
-                  <Box>
-                    <Link href="/" color="inherit">
-                      History
-                    </Link>
-                  </Box>
-                  <Box>
-                    <Link href="/" color="inherit">
-                      Roll
-                    </Link>
-                  </Box>
+                  
+                 
                 </Grid>
               </Grid>
-              <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-                Material UI Workshop &reg; {new Date().getFullYear()}
-              </Box>
+            
             </Container>
           </Box>
         </footer>

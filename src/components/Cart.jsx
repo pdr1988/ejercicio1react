@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react';
 import { cartContext } from './CartContext/CartContext';
 import { useContext } from 'react';
 import './Cart.css';
 import Button from '@mui/material/Button';
-
-import {
-  DataGridPro
-} from '@mui/x-data-grid-pro';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+import {DataGridPro} from '@mui/x-data-grid-pro';
 import { Link } from 'react-router-dom';
 
 
@@ -29,17 +29,13 @@ export default function Cart() {
                 style={{ marginLeft: 16 }}
                 onClick={() => {
                 removeItem(rows) 
-                
-                           
-            }}
+                }}
             >
-                ELIMINAR 
+              ELIMINAR 
             </Button>
         </strong>
     )
   }
-
-
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70, editable: true },
@@ -64,39 +60,45 @@ export default function Cart() {
       type: 'actions',
       width: 100,
       renderCell: renderDetailsButton,
-      getActions: () => [
-  /*       <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
-         <GridActionsCellItem icon={<DeleteIcon />} label="Delete"  onClick={console.log(rows.id)}/>,*/
-      ],
+      getActions: () => [],
     },
   ];
   
-   let priceAux = preciototal()
+  let priceAux = preciototal();
   return (
     <div> 
-    {rows[0] ? <div style={{ height: 400, width: '100%' }}>
-        
-          <DataGridPro
+      {rows[0] ? <div style={{ height: 400, width: '100%' }}>
+        <DataGridPro
             rows={rows}            
             columns={columns}
-          />
-          <div> 
-            <button className='button' onClick={clear}>BORRAR CARRITO</button>
-            <b className='total'>PRECIO TOTAL: ${priceAux}.00</b>
-          </div>
-          <div>
-          <button className='button'> <Link to={`/checkout`} >
-                          FINALIZAR COMPRA
-          </Link></button>
+        />
 
+      <Stack spacing={2} direction="row">
+        <div>
+          <b className='total'>PRECIO TOTAL: ${priceAux}.00</b>
+        </div>      
+        <div className='button'> 
+          <Button onClick={clear} variant="outlined" startIcon={<DeleteIcon />}>
+            BORRAR CARRITO
+          </Button>
+        </div>
+          <div className='button'>
+            <Button variant="contained" endIcon={<SendIcon />}>
+              <Link to={`/checkout`} >
+                FINALIZAR COMPRA
+              </Link>
+            </Button>
           </div>
-      </div>
-      :
-       <Link to= "/"><span className='emptyCart'>Carrito vacio, click aqui para comprar</span></Link>}
-     
+      </Stack>
     </div>
+    :
+      <Link to= "/"><span className='emptyCart'>Carrito vacio, click aqui para comprar</span></Link>}
+     
+  </div>
   )
 }
+
+
 
 
 

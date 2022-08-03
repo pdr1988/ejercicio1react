@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { cartContext } from '../CartContext/CartContext';
 import { useContext } from 'react';
-import { alpha, styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import Box from '@mui/material/Box';
-
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
@@ -22,18 +19,12 @@ export default function Checkout() {
     const [name,setName] = useState();
     const [phone,setPhone] = useState();
     const [email,setEmail] = useState();
-
     
-
     function handleClickComprar (){
         const pedido = {buyer: {name, phone, email}, carrito: cart, date: hoy.toISOString(), total: preciototal()}
         const db = getFirestore();
         const collectionRef = collection(db, 'pedido');
         addDoc(collectionRef, pedido).then(({id})=>alert(id))
-        
-
-
-
     }
   return (
     <div>
@@ -61,17 +52,5 @@ export default function Checkout() {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 

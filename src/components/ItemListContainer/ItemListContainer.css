@@ -11,3 +11,11 @@
     align-items: center;
     
 }
+
+.sublogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    width: 100%;
+}

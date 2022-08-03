@@ -49,20 +49,16 @@ const StyledBadge = styled(BadgeUnstyled)`
 
 const Cartwidget = () => {
     const {cart} = useContext(cartContext);
-    let countAux = 0
-    cart.map((product)=> countAux = countAux + product.cantidad)
+    let countAux = 0;
+    cart.map((product)=> countAux = countAux + product.cantidad);
     
     return(
         <div>
-        <StyledBadge badgeContent={countAux}>
-  
-    
-
-       
+          <StyledBadge badgeContent={countAux}>
             <IconButton size="x-large">
-                <ShoppingCartIcon fontSize="x-large"/>
+              <ShoppingCartIcon fontSize="x-large"/>
             </IconButton>
-        </StyledBadge>
+          </StyledBadge>
         </div> 
     )    
 }

@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from './ItemDetail'
 import {doc, getDoc, getFirestore} from 'firebase/firestore'
+import * as React from 'react';
+
 
 
 
@@ -26,7 +28,7 @@ const ItemDetailContainer = () => {
     
     
     return(
-        <div>
+        <div backgroundColor='yellow'> 
             {producto && <ItemDetail producto={producto}/>} 
         </div>
        
